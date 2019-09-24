@@ -156,4 +156,55 @@ repeat {
 }
 res
 
-for 
+for (i in 1:10) {
+  if (i %% 2 == 0) {next}
+  
+  print(paste("Number ", i, " is odd."))
+  
+  if (i %% 7 == 0) {break}
+}
+
+a <- c(4:7)
+seq_along(a)
+
+length(a)
+seq_len(length(a))
+
+b <- seq(4, 7)
+c <- seq(4, 7, by = 2)
+b
+c
+
+#Bad
+a <- c()
+for (i in seq_len(10)) {
+  a <- c(a, i ^ 3)
+}
+print(a)
+
+#faster
+a <- numeric(10)
+a
+for (i in seq_along(a)) {
+  a[i] <- i ^ 3
+}
+a
+
+#even faster
+a <- c(1:10) ^ 3
+a
+
+x <- c(3, 4, 12, 19, 23, 49, 100, 63, 70)
+print(x ^ 2)
+
+z <- c(-1, .5, 0, .5, 1)
+for (i in seq_along(z)) {
+  k <- 0
+  while ( abs(cos(k) - z[i]) >= 0.001) {
+    k <- k+1
+  }
+  print(paste(k, " is the smallest k for ", z[i]))
+}
+
+
+
